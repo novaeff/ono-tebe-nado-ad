@@ -1,1 +1,410 @@
 /* место для вашего кода */
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* --- ШАПКА --- */
+.header {
+	display: grid;
+	/* В Figma: контакты (right: 50), лого по центру, меню (left: 50) */
+	grid-template-columns: 1fr min-content 1fr;
+	align-items: center;
+	height: 293px;
+	padding: 0 50px; /* Отступы по бокам 50px из Figma */
+}
+
+.header__menu {
+	justify-self: start; /* Меню влево */
+}
+
+.header__links-list {
+	display: flex;
+	gap: 20px; /* Отступ между пунктами (подбираем по макету) */
+}
+
+.header__links-list-item {
+	list-style-type: circle; /* Кружочки из макета */
+	margin-left: 20px;
+}
+
+.header__links-list-item_no-bullit {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+.header__link {
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 21px;
+	color: #000;
+}
+
+.header__link_active {
+	text-decoration: underline;
+}
+
+.header__logo {
+	display: block;
+	width: 148px; /* Размер из Figma */
+	height: 105px;
+}
+
+.header__logo-image {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.header__address {
+	justify-self: end; /* Адрес вправо */
+	font-style: normal;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+	max-width: 240px; /* Из Figma: contacts width */
+}
+
+.address__link {
+	text-decoration: underline; /* В макете номера подчеркнуты */
+	text-decoration-skip-ink: none;
+}
+
+/* --- ОБЛОЖКА (COVER) --- */
+.cover {
+	position: relative;
+	height: 757px; /* Высота из Figma */
+	padding: 0; /* Убираем отступы, чтобы координаты совпадали */
+	background-image: url('../images/cover.jpg');
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+}
+
+/* Полупрозрачный оверлей поверх картинки */
+.overlay {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 1;
+}
+
+/* --- ЗАГОЛОВОК ОБЛОЖКИ (ТОЧНО ПО FIGMA) --- */
+.cover__title {
+	position: absolute;
+	width: 1000px;
+	height: 385px;
+	left: 50px;
+	top: 165px;
+	margin: 0;
+	z-index: 2;
+}
+
+/* Общие стили для всех слов заголовка */
+.cover__title span {
+	position: absolute;
+	font-family: 'Raleway', sans-serif;
+	font-size: 100px;
+	font-weight: 700;
+	line-height: 115%;
+	letter-spacing: 0.3em;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+/* Слово "ОНО" */
+.aligned-text_left {
+	left: 0;
+	top: 0;
+	width: 286px;
+}
+
+/* Слово "ТЕБЕ" */
+.aligned-text_center {
+	left: 330px; /* Вычислено из Figma */
+	top: 135px;
+	width: 339px;
+	text-align: center;
+}
+
+/* Слово "НАДО" */
+.aligned-text_right {
+	left: 613px; /* Вычислено из Figma */
+	top: 270px;
+	width: 387px;
+	text-align: right;
+}
+
+/* --- ОПИСАНИЕ И КНОПКА (ТОЧНО ПО FIGMA) --- */
+.cover__description {
+	position: absolute;
+	width: 1000px;
+	height: 51px;
+	left: 50px;
+	top: 656px; /* Координата из Figma */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 2;
+}
+
+.cover__description-text {
+	margin: 0;
+	font-family: 'Raleway', sans-serif;
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 28px;
+	text-transform: uppercase;
+	word-spacing: 15px;
+}
+
+/* Кнопка "Сделать ставку" */
+.bet-button {
+	width: 256px;
+	height: 51px;
+	padding: 0;
+	border: 1px solid #fff;
+	color: #fff;
+	font-family: 'Raleway', sans-serif;
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 26px;
+	text-transform: uppercase;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+/* --- СЕКЦИЯ ЛОТЫ --- */
+.lots {
+	width: 1052px;
+	margin: 180px auto 120px; /* 180px от обложки (1230 - 293 - 757), 120px до about */
+	padding: 0;
+}
+
+.lots__heading {
+	margin: 0 0 27px 40px; /* В Figma title left: 40px, top: 0 */
+	font-family: 'Raleway', sans-serif;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 47px;
+	text-transform: uppercase;
+}
+
+.lots__card-list {
+	display: flex;
+	gap: 25px; /* Расстояние между карточками (334*3 + 25*2 = 1052) */
+	margin-bottom: 30px;
+}
+
+.lots__card-list-item {
+	width: 334px; /* Из Figma */
+	height: 596px; /* Из Figma */
+}
+
+.card-link {
+	display: block;
+	height: 100%;
+}
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	padding: 48px 40px; /* Отступы внутри карточки из Figma */
+	color: #fff;
+	background-size: cover;
+	background-position: center;
+}
+
+.card_type_film {
+	background-image: url('../images/card-lot-01.jpg');
+}
+.card_type_book {
+	background-image: url('../images/card-lot-02.jpg');
+}
+.card_type_picture {
+	background-image: url('../images/card-lot-03.jpg');
+}
+
+.card__title,
+.card__text {
+	position: relative;
+	z-index: 2;
+}
+
+.card__title {
+	margin: 0;
+	font-family: 'Raleway', sans-serif;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 120%;
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+
+.card__text {
+	margin: 0;
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 120%;
+}
+
+.lots__look-more-link {
+	display: inline-block;
+	margin-left: 40px; /* В Figma left: 40px */
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 23px;
+	text-decoration: underline;
+}
+
+/* --- СЕКЦИЯ ОБ АУКЦИОНЕ (ИСПРАВЛЕНО ПО ЦИФРАМ) --- */
+.about {
+	display: grid;
+	/* Левая колонка 359px (как left: 359px в Figma для about-column), правая 693px */
+	grid-template-columns: 359px 693px;
+	width: 1052px;
+	margin: 0 auto 180px;
+	padding: 0;
+}
+
+/* Левая колонка (логотип) */
+.about__column:first-child {
+	display: flex;
+	justify-content: flex-start;
+	/* В Figma logo-column left: 47px, top: 35px (относительно about) */
+	padding-left: 47px;
+	padding-top: 35px;
+}
+
+/* Правая колонка (текст) */
+.about__column:last-child {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	/* В Figma about-column top: 133px. Заголовок на top: 3px (133+3=136px) */
+	padding-top: 133px;
+}
+
+.about__logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 240px;
+	height: 240px;
+	border-radius: 50%;
+	background-color: #000;
+}
+
+.about__logo-image {
+	width: 148px;
+	height: 114px;
+	object-fit: contain;
+}
+
+.about__title {
+	margin-top: 3px; /* Из Figma top: 3px */
+	margin-bottom: 100px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 47px;
+	text-transform: uppercase;
+}
+
+.about__text {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.about__text p {
+	margin: 0;
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 24px; /* Из Figma */
+}
+
+/* --- ПОДВАЛ --- */
+.footer {
+	display: grid;
+	/* В Figma: contacts left: 50px, menu center, socials right: 50px */
+	grid-template-columns: 1fr auto 1fr;
+	align-items: start;
+	height: 180px;
+	padding: 0 50px;
+	background-color: transparent;
+	color: #000;
+}
+
+.footer__address {
+	margin-top: 1px; /* В Figma top: 95px */
+	font-style: normal;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.footer__menu {
+	justify-self: center;
+	margin-top: 1px; /* В Figma top: 1px */
+}
+
+.footer__menu-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+}
+
+.footer__menu-link {
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 21px;
+	text-decoration: none;
+}
+
+.footer__menu-link_active {
+	text-decoration: underline;
+}
+
+.footer__social-list {
+	justify-self: end;
+	margin-top: 1px;
+	display: flex;
+	gap: 48px;
+}
+
+.footer__social-list-item {
+	width: 48px;
+	height: 48px;
+}
+
+.footer .footer__social-icon {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
